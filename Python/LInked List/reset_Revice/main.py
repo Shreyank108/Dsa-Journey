@@ -176,15 +176,35 @@ class SLL:
             while current.next.next is not None : 
                 current=current.next  
                 current.next=None 
-        self.n=self.n-1
+        self.n=self.n-1 
         
+    def removeing_element(self,data): 
         
-      
-         
+        if self.head==None : 
+            return "Empty List"
+        
+        if self.head.value == data: 
+             return self.delate_head() 
+        
+        current=self.head    
+        while current.next is not None : 
+            if current.next.value == data :              
+                break   
+            current=current.next   
             
-      
-            
-        
+        if current.next == None :  
+            return "Nopt Found" 
+        else : 
+            current.next == current.next.next   
+    
+    #searching   
+    def search_by_index(self,data): 
+        current = self.head    
+        while current is not None : 
+            if current.value == data :  
+                print(len(sll)-1)   
+            current=current.next 
+        return -1        
 
 sll=SLL()  
 
@@ -201,7 +221,9 @@ sll.append(13)
 sll.insetr_afer(2,69)
 # sll.delate_head()
 # sll.clear()
-sll.deleate_from_tail()
+# sll.deleate_from_tail()
+# sll.removeing_element(17) 
+sll.search_by_index(3)
 print(len(sll),"\n")
 
 sll.printing() 
