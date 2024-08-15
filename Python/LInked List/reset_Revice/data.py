@@ -53,7 +53,29 @@ class Sll:
         if current.next is None : 
             return "ab kya window delete krega" 
         else : 
-            current.next= current.next.next       
+            current.next= current.next.next      
+            
+    # Searching 
+    def searching(self,value):  
+        current = self.head
+        pos=0     
+        while current is not None : 
+            if current.item == value : 
+                return pos   
+            current = current.next   
+            pos+=1  
+        return "ni hai element bro" 
+    
+    def __getitem__(self, index): 
+        current = self.head   
+        pos =0   
+        while current is not None : 
+            if pos == index   : 
+                return current.item  
+            current= current.next   
+            pos +=1 
+        return      
+    # Searching  
         
             
     def traversing(self): 
@@ -74,7 +96,8 @@ sll.insert_after(40,200)
 # sll.clear()
 # sll.deletion_of_head()
 # sll.delete_from_tail() 
-sll.delete_value(400)
-sll.delete_value(30)
+# sll.delete_value(400)
+# sll.delete_value(30) 
+print(sll.searching(30))
 sll.traversing() 
         
