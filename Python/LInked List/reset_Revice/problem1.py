@@ -204,7 +204,22 @@ class SLL:
             if current.value == data :  
                 print(len(sll)-1)   
             current=current.next 
-        return -1   
+        return -1    
+    
+    def Find_middle_elem_and_make_delete(self): 
+        slow=self.head  
+        prev =None  
+        fast=self.head    
+        while fast is not None and fast.next is not None : 
+            fast=fast.next.next
+            prev=slow
+            slow=slow.next
+        #deleting of Middle Node 
+        prev.next = slow.next 
+        slow.next=None   
+        
+          
+
     
     
              
@@ -212,22 +227,14 @@ class SLL:
 sll=SLL()  
 
 sll.insert_at_head(1)
-sll.insert_at_head(2)
-sll.insert_at_head(3)
-sll.insert_at_head(3) 
-sll.append(7)
-sll.append(17) 
-sll.append(13) 
-sll.append(13) 
-sll.append(13) 
-sll.append(13) 
-sll.insetr_afer(2,69)
-# sll.delate_head()
-# sll.clear()
-# sll.deleate_from_tail()
-# sll.removeing_element(17) 
-sll.search_by_index(3)
-print(len(sll),"\n")
-
+sll.append(2)
+sll.append(3) 
+sll.append(4) 
+sll.append(5) 
+sll.append(6) 
+sll.append(7) 
+sll.printing() 
+print("\n")
+sll.Find_middle_elem_and_make_delete()
 sll.printing() 
 
