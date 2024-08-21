@@ -216,7 +216,9 @@ class SLL:
             slow=slow.next
         #deleting of Middle Node 
         prev.next = slow.next 
-        slow.next=None   
+        slow.next=None    
+    
+        
         
           
 
