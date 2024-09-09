@@ -33,7 +33,34 @@ def searching (root,key):
     elif root.data > key : 
          return searching(root.left, key) 
     else : 
-        return searching(root.right, key)  
+        return searching(root.right, key)   
+
+def Deletion(root,key): 
+    if root is None : 
+        return root    
+    elif  key < root.data : 
+        root.left= Deletion(root.left,key) 
+    elif key > root.data : 
+        root.right=Deletion(root.right,key) 
+    else : 
+        if root.left is None and root.right is None : 
+            root = None   
+        elif root.left is None : 
+            root = root.right    
+        elif root.right is None : 
+            root= root.left    
+        else : 
+            #Sucessor   [Min Value] 
+            temp =min_value(root.right) 
+            root.data= temp.data    
+            root.right=Deletion(root.right, key) 
+    return root  
+
+def min_value(node): 
+    current = node   
+    while current.left is not None : 
+        current = current.left   
+    return current  
     
 
 
@@ -48,4 +75,13 @@ preorder(root)
 print() 
 postorder(root) 
 print()
-searching(root,50)
+# searching(root,50) 
+
+
+print()
+print()
+print() 
+inorder(root) 
+print() 
+Deletion(root, 40) 
+inorder(root)
